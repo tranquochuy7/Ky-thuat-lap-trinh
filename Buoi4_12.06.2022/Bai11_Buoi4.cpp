@@ -8,6 +8,9 @@ void sx(int a[], int n);
 int ktd(int a[], int n);
 int ktSHH(int n);
 int ktsotangdan(int a[], int n);
+int sochantang(int a[], int n);
+void sxgiam(int a[], int n)
+void giamle(int a[], int n)
 int main(){
 	int i, n,x;
 	do{
@@ -15,6 +18,7 @@ int main(){
 		scanf("%d",&n);
 	}while(n<=0);
 	int a[n];
+	int b[n];
 	
 	nhapmang(a,n);
 	xuatmang(a,n);
@@ -44,6 +48,12 @@ int main(){
 	{
 		printf("\nmang k tang dan");
 	}
+	sochantang(a,n);
+	sxgiam(a,n);
+	printf("sx giam le");
+	giamle(a,n);
+	return 0;
+
 }
 void nhapmang(int a[], int n){
 	for(int i=0;i<n;i++){
@@ -117,5 +127,42 @@ int ktsotangdan(int a[], int n){
 	}
 	else{
 		return 0;
+	}
+}
+int sochantang(int a[], int n ){
+	int b[n];
+	 int i;
+	for(i = 0; i<n;i++){
+		if(a[i]%2==0)
+		{
+			b[i]=a[i];
+			printf("%3d", b[i]);
+		}
+	}
+
+}
+void sxgiam(int a[], int n){
+	int tamtam;
+	for(int i = 0; i<n;i++){
+		for(int j = i+1; j<n;j++){
+			if(a[i]<a[j])
+				tamtam = a[i];
+				a[i] = a[j];
+				a[j] = tamtam;
+		}
+	}
+	for(int i = 0; i<n ; i++){
+		printf("%d",a[i]);
+	}
+}
+void giamle(int a[], int n){
+	int c[n];
+
+	for(int i = 0; i<n; i++)
+	{
+		if(a[i]%2!=0){
+			c[i] = a[i];
+			printf("%d",c[i]);
+		}
 	}
 }
