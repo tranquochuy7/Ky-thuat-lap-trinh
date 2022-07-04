@@ -1,22 +1,29 @@
-#include<stdio.h>
-#include<conio.h>
-#include<math.h>
-int tinhtong(int n);
-int main(){
+#include <stdio.h>
+#include <conio.h>
+float LuyThua(float x, int n);
+int main()
+{
     int n;
-    do{
-        printf("nhap n: ");
-        scanf("%d",&n);
-    }while(n<=0);
-    tinhtong(n);
+    float x;
+    printf("nhap x: ");
+    scanf("%f", &x);
+    printf("nhap n: ");
+    scanf("%d", &n);
+    printf("kq = %lf",LuyThua(x, n));
+    
+
     return 0;
 }
-int tinhtong(int n){
-    int tong = 0;
-    for(int i = 1;i<=n; i++){
-        if(i%2==0){
-            tong += i;
-        }
+float LuyThua(float x, int n)
+{
+
+    if (n == 0)
+    {
+        return 1;
     }
-    printf("tong chan 1 den %d la : %d",n,tong);
+    if (n < 0)
+    {
+        return LuyThua(x, n + 1) * 1 / x;
+    }
+    return LuyThua(x, n - 1) * x;
 }
