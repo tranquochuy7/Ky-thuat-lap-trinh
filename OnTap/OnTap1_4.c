@@ -1,40 +1,29 @@
-#include<stdio.h>
-#include<conio.h>
-#include<math.h>
-void nhapmang(int a[], int n);
-void xuatmang(int a[], int n);
-int demsochan(int a[], int n);
+#include <stdio.h>
+#include <conio.h>
 int main(){
     int n;
-    do{
-        printf("nhap n: ");
-        scanf("%d",&n);
-    }while(n<=0);
-    int a[n];
-    nhapmang(a,n);
-    xuatmang(a,n);
-    int dem = demsochan(a,n);
-    printf("\nco %d so chan chia het cho 3",dem);
+    int tong = 0;
+    int a[100];
+    FILE *f1,*f2;
+    f1 = fopen("Ontap1Cau4.inp","rt");
+    if(f1==NULL){
+        printf("loi k moi dk tap tin");
+    }else{
+        fscanf(f1,"%d",&n);
+        for(int i = 0; i<n; i++){
+            fscanf(f1,"%d",a[i]);
+        }
+        for(int i = 0; i<n; i++){
+            tong =  tong+a[i];
+        }
+        f2 = fopen("xuatfile.out","wt");
+        fprintf(f2,"mang 1 chiu la: ");
+        for(int i = 0; i<n ; i++){
+            fprintf(f2,"%3d",a[i]);
+        }
+        fprintf(f2,"tong = %d",tong);
+        fclose(f1);
+        fclose(f2);
+    }
     return 0;
 }
-void nhapmang(int a[], int n){
-    for(int i = 0; i<n; i++){
-        printf("nhap a[%d] ",i+1);
-        scanf("%d",&a[i]);
-    }
-}
-void xuatmang(int a[], int n){
-    for(int i = 0; i<n;i++){
-        printf("%d ",a[i]);
-    }
-}
-int demsochan(int a[], int n){
-    int dem =0;
-    for(int i = 0 ; i<=n; i++){
-        if(a[i]%2==0&&a[i]%3==0){
-            dem++;
-        }
-    }
-    return dem;
-}
-

@@ -23,6 +23,12 @@
 lớn nhất trong cột. Hãy in ra các điểm yên ngựa có thể có.
 
 10. Sắp xếp ma trận tăng dần từ trên xuống dưới và từ trái qua phải*/
+//nếu tính đường chéo chính i = j
+//tính tam giac dưới chéo chính trừ chéo chính i>j thêm >= tính lun chéo phụ
+//tam giác trên chéo chính i<j <=
+//i+j = n-1 đường chéo phụ 
+//ính tam giac dưới i+j > n-1 >=
+//tam giác trên i+j<n-1 <=
 int mindong(int a[100][100], int m, int n, int k)
 {
 	int min = a[k][0];
